@@ -1,0 +1,47 @@
+
+mat-card
+{
+  width:40%
+}
+.fa-star
+{
+  color: gray;
+
+}
+.stars-outer
+{
+  position: relative;
+  display: inline-block;
+}
+.stars-inner
+{
+  position: absolute;
+  top:0;
+  left:0;
+  white-space: nowrap;
+  overflow: hidden;
+  color:orange;
+  width: 0;
+}
+.stars-outer::before
+{
+  content: "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: large;
+  color:#ccc;
+  cursor: pointer;
+}
+.stars-inner::before
+{
+  content: "\f005";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  font-size: large;
+  color:#f8ce0b;
+  cursor: pointer;
+}
+.newclass
+{
+  width:100%
+}

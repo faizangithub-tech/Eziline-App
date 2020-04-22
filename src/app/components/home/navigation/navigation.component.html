@@ -1,0 +1,4 @@
+<div class="custom">
+<button  [disabled]="this.pageno==1" mat-button class="fa fa-arrow-left  fa-2x" (click)="backsection()"></button>
+<button  [disabled]="(this.pageno-1)*this.pagesize >=records.length"mat-button class="fa fa-arrow-right fa-2x" (click)="nextsection()"></button>
+</div>

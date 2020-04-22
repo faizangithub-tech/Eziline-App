@@ -1,0 +1,41 @@
+
+   <div class="container-fluid">
+   <ng-container *ngIf="users.length>0">
+   <ng-container *ngFor="let user of users">
+    <mat-card class="col-lg-6 col-md-4" *ngIf="value" [@tadaOnEnter] [@fadeOutOnLeave]>
+      <mat-card-header>
+        <img mat-card-avatar src="{{user.imgurl!=null ? user.imgurl :dummy}}">
+        <mat-card-title>{{user.username}}</mat-card-title>
+      </mat-card-header>
+
+      <img mat-card-image   src="{{user.imgurl!=null ? user.imgurl :dummy}}">
+
+
+  <mat-card-footer class="modify">
+    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button mat-icon-button [matMenuTriggerFor]="appMenu" ><mat-icon>keyboard_arrow_down</mat-icon></button>
+        <button type="button" mat-button>ActiveRoles</button>
+        <button type="button" mat-button [disabled]="user.id==_login._loggedinuser.id" (click)="editRolesModal(user)">EditRoles</button>
+      </div>
+    </div>
+  </mat-card-footer>
+  <mat-menu #appMenu="matMenu">
+    <ng-container *ngFor="let role of user.roles">
+      <button mat-menu-item>{{role}}</button>
+    </ng-container>
+  </mat-menu>
+    </mat-card>
+   </ng-container>
+   </ng-container>
+  </div>
+  <div class="container-12">
+      <app-paginate [entity]="userobjs"
+      (emitrecords)="GetRecords($event)">
+      </app-paginate>
+  </div>
+
+
+
+
+

@@ -1,0 +1,71 @@
+.container-fluid
+{
+
+  margin-top: 5%;
+
+}
+.container
+{
+
+  color:gray
+}
+.fa-arrow-left,.fa-arrow-right
+{
+   color:rgb(255, 157, 0)
+}
+mat-form-field
+{
+  width:100%;
+  padding-top:1%
+}
+.modify>mat-card
+{
+    width:300px;
+    height:500px;
+    margin-left:60px;
+}
+.image
+{
+  width:300px;
+  height:100px
+}
+.objdescribe
+{
+  max-height: 300px;
+  overflow: scroll;
+}
+.navigation
+{
+  padding-left: 43%;
+}
+mat-label,mat-error
+{
+  font-weight: bolder;
+}
+textarea
+{
+  overflow: hidden;
+}
+.float
+{
+  float: right;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline
+{
+  color:olive;
+}
+mat-form-field:hover
+{
+  color:olive
+}
+
+.container:first-of-type + .container
+{
+
+   color:black
+}
+.meneu
+{
+  z-index: 1;
+  color:black;
+}

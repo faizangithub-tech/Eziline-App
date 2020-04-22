@@ -1,0 +1,57 @@
+
+<div class="container" style="overflow: hidden;">
+   <div class="row postcomment">
+          <div class="col-lg-2  userimage">
+            <img  class="pull-right" src="{{user.mainphoto!=null ? user.mainphoto:dummy}}">
+          </div>
+          <div class="col-md-6">
+            <form >
+            <mat-form-field appearance="outline">
+              <mat-label>write your review comment here {{user.userName}}</mat-label>
+              <textarea matInput [formControl]="comment">
+
+              </textarea>
+              <mat-icon matSuffix>comment</mat-icon>
+              <mat-error>{{getcommenterror()}}</mat-error>
+            </mat-form-field>
+            </form>
+          </div>
+          <div class="col-lg-2" id="sendcomment">
+            <button mat-button (click)="Analysis()" [disabled]="comment.invalid">
+            <mat-icon>done_all</mat-icon>
+            submit</button>
+          </div>
+    </div>
+    <div class="row">
+          <div class="col-lg-2"></div>
+          <div class="col-lg-8" id="ratingmatcards">
+            <ng-container *ngFor="let comment of comments;let i=index">
+              <mat-card  *ngIf="state" [@zoomInRightOnEnter]>
+                  <mat-card-header>
+                    <img mat-card-avatar src="{{comment.user.mainphoto!=null ? comment.user.mainphoto:dummy}}">
+                    <mat-card-title class="card-title">
+                      <app-rating-stars [updaterating]="comment.polarity"
+                                        [uniqueid]="ratingcompids[i]"
+                                        id={{ratingcompids[i]}}>
+                      </app-rating-stars>
+                    </mat-card-title>
+                    <mat-card-subtitle>{{comment.user.userName}}</mat-card-subtitle>
+                    <mat-card-content>
+                      <p>
+                        {{comment.text}}
+                      </p>
+                    </mat-card-content>
+                  </mat-card-header>
+              </mat-card>
+            </ng-container>
+          </div>
+          <div class="col-lg-2"></div>
+    </div>
+    <div class="container navigation">
+              <app-navigation
+               (filterd)="GetRecords($event)">
+
+              </app-navigation>
+    </div>
+</div>
+

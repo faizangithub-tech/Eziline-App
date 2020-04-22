@@ -1,0 +1,13 @@
+.fa-arrow-left,.fa-arrow-right
+{
+    color:rgba(212, 235, 13, 0.904);
+}
+button
+{
+  padding-left:5%;
+}
+.custom
+{
+  width:200px;
+  margin-left: -50%;
+}

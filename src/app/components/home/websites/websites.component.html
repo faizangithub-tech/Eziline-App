@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <ng-container *ngFor="let obj of webobjs">
+      <div class="col-md-4 col-sm-6 col">
+        <mat-card *ngIf="state" [@flipInXOnEnter] [@flipOutXOnLeave]>
+          <img mat-card-image class="image"  src="{{obj.coverimage}}">
+          <mat-card-header>
+            <mat-card-title>
+               {{obj.name}}
+              <button mat-icon-button (click)="navigate(obj)">
+              <mat-icon>link</mat-icon>
+              </button>
+              <button mat-stroked-button (click)="Details(obj)">See Details</button>
+            </mat-card-title>
+            <mat-card-subtitle>
+              {{obj.title}}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="card-text">
+             {{obj.description}}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="container paginate" >
+    <app-paginate [entity]="websites"
+    (emitrecords)="GetRecords($event)">
+    </app-paginate>
+  </div>
+
+</div>

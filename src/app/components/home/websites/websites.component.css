@@ -1,0 +1,25 @@
+.container
+{
+  margin-top: 5%;
+}
+
+.image
+{
+  width:360px;
+  height:200px
+}
+mat-card
+{
+  height:500px;
+  overflow: hidden;
+}
+.paginate
+{
+
+  margin-top: 0%;
+  height:50px
+}
+mat-stroked-button
+{
+  float: right;
+}

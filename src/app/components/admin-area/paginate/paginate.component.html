@@ -1,0 +1,14 @@
+
+  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2" role="group" aria-label="First group">
+    <ng-container *ngIf="pages.length>0">
+    <button type="button" mat-icon-button (click)="prev($event)"><mat-icon>navigate_before</mat-icon></button>
+     <ng-container *ngFor="let page of pages; let i=index ">
+      <button type="button" mat-button id={{i}} (click)="paginate($event)">{{page}}</button>
+     </ng-container>
+    <button type="button" mat-icon-button (click)="next($event)"><mat-icon>navigate_next</mat-icon></button>
+    </ng-container>
+  </div>
+</div>
+
+

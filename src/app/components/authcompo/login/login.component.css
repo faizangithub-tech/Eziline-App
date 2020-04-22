@@ -1,0 +1,60 @@
+
+.card
+{
+  width:500px;
+  height:300px;
+  border-radius:20px;
+  margin-left: 32%;
+  overflow: hidden;
+  z-index: 1;
+  margin-top:13%;
+  position: absolute;
+  background-image: url("../../../../assets/images/undraw_detailed_examination_joef.png");
+  background-size: 100% 100%;
+}
+mat-form-field
+{
+  padding-left: 150px;
+}
+.row:first-of-type + .row
+{
+
+   padding-top: 45px;
+   border-color: orange;
+
+   width: 100%;
+
+}
+.col-12
+{
+  padding-top: 25px;
+}
+mat-error,mat-label
+{
+  font-weight: bolder;
+}
+mat-icon
+{
+  color:gray
+}
+.spacer
+{
+  flex :1 1 auto
+}
+.col-lg-12
+{
+  margin-left: 25%;
+  margin-top: 9%;
+}
+button
+{
+background: #f12711;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+margin-left: 30px;
+color: white;
+}
+.disabled
+{
+  cursor:not-allowed;
+}

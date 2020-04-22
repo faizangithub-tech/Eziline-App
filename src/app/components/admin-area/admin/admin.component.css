@@ -1,0 +1,16 @@
+
+.container
+{
+ margin-top: 5%;
+ color: black;
+ cursor: pointer;
+ margin-left: 40%;
+ overflow: hidden;
+ width:400px
+}
+.container>button
+{
+  margin-left: 5%;
+}
+
+

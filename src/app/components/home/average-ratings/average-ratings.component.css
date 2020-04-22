@@ -1,0 +1,23 @@
+
+.progress
+{
+   width:400px;
+   margin:5%;
+}
+.average
+{
+  font-weight: bolder;
+  font-size: 150px;
+  font-family: 'Times New Roman', Times, serif;
+  color:rgba(12, 60, 92, 0.767);
+  text-align: center;
+}
+
+
+.ratingbox
+{
+
+  width:70%
+}
+
+

@@ -1,0 +1,40 @@
+
+<div class="container-fluid" *ngIf="state" [@bounceInUpOnEnter]>
+  <mat-card *ngIf="avgratings">
+   <div class="row">
+       <div class="col-lg-4 custom">
+        <h6 class="average" *ngIf="avgratings">
+          {{avgratings.average}}
+        </h6>
+        <div class="container  ratingbox" >
+
+         <app-rating-stars
+          [updaterating]="avgratings.average"
+          [uniqueid]="uniqueid"
+          id="ratingcompC" #rate>
+         </app-rating-stars>
+        </div>
+       </div>
+       <div class="col-lg-6" >
+        <ng-container *ngIf="avgratings">
+        <ng-container *ngFor="let rate of model;let i=index">
+          <div class="progress">
+          <div
+                class="progress-bar"
+                role="progressbar"
+                [style.width.%]="rate.percentage"
+                aria-valuenow="25"
+                aria-valuemin="0"
+                [ngStyle]="GetColor(i)"
+                aria-valuemax="100">
+                {{rate.percentage}}%
+          </div>
+          </div>
+        </ng-container>
+        </ng-container>
+       </div>
+
+   </div>
+  </mat-card>
+
+</div>

@@ -1,0 +1,103 @@
+
+.container
+{
+  margin-top: 10%;
+  color: black;
+}
+#Animate
+{
+  background-color: orangered;
+  height:50px;
+  width:50px
+}
+mat-card
+{
+  color:black;
+  width:300px;
+  height:auto;
+  font-size: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-top: 2%;
+  margin-left: 5%;
+
+}
+.container
+{
+  background-color: white;
+  width:280px
+}
+.container-fluid
+{
+
+  margin-top: 4%;
+  padding-left: 10%;
+  overflow-y: hidden;
+  padding-top: 2%;
+}
+mat-card-img
+{
+  object-fit: cover;
+  width: 100%;
+  height: 80%;
+}
+.image-container
+{
+  width: 280px;
+  height: 150px;
+}
+.container>.row
+{
+  width:250px;
+  color:orange
+}
+.example-header-image
+{
+  background-image: url("../../../../assets/back-ground/pexels-photo-1564839.jpeg");
+  background-size: cover;
+}
+mat-card-actions
+{
+  padding-left: 25%;
+}
+mat-card-actions>button
+{
+  margin-left: 5%;
+}
+app-paginate
+{
+  margin-top: 15%;
+  margin-left: 10%;
+}
+.spacer
+{
+  height:30px
+}
+.modify
+{
+  width:112%;
+}
+.btn-group
+{
+  padding-left: 10%;
+  color:darkgray;
+}
+
+mat-menu-item
+{
+  color:black
+}
+.container-12
+{
+  position: static;
+  width:100%;
+  padding-left: 15%;
+  border-top: red;
+}
+.image
+{
+  height:500px;
+  width:150px
+}
+
+
+

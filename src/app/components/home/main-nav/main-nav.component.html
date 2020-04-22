@@ -1,0 +1,52 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="customized">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="spacer"></span>
+      <img src="{{star}}" class="star-image">
+      <img src="{{star}}" class="star-image">
+      <span class="spacer2"></span>
+
+
+      <img src="{{loggedin._loggedinuser.mainphoto!=null ? loggedin._loggedinuser.mainphoto :dummy}}" class="image-container" >
+
+      <span class="styletext">Welcome {{loggedin._loggedinuser.userName}}</span>
+      <button mat-icon-button [matMenuTriggerFor]="beforeMenu"><mat-icon>keyboard_arrow_down</mat-icon></button>
+
+      <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button mat-menu-item><mat-icon>settings_backup_restore</mat-icon>EditProfile</button>
+      <button mat-menu-item><mat-icon>keyboard_return</mat-icon>Logout</button>
+      <button mat-menu-item [matMenuTriggerFor]="adminitem" routerLink="admin" *appHasRole="{roles:['Admin','Moderator']}"><mat-icon>person</mat-icon>Admin</button>
+      </mat-menu>
+
+      <mat-menu #adminitem="matMenu">
+        <button mat-menu-item routerLink="admin/manageusers" routerLinkActive="active"><mat-icon>supervisor_account</mat-icon>manageusers</button>
+        <button mat-menu-item routerLink="admin/managesites" routerLinkActive="active"><mat-icon>remove_from_queue</mat-icon>managesites</button>
+      </mat-menu>
+
+
+
+    </mat-toolbar>
+
+    <router-outlet></router-outlet>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,89 @@
+.sidenav-container
+{
+  height: 100%;
+  color: white;
+  background-image: url("../../../../assets/images/undraw_project_feedback_2s92.png");
+  background-size: 100% 100%;
+  cursor: pointer;
+}
+
+.sidenav
+{
+  width: 200px;
+}
+
+.sidenav .mat-toolbar
+{
+  background: inherit;
+  color: white;
+}
+
+.mat-toolbar.mat-primary
+{
+  position: sticky;
+  top: 0;
+
+}
+.mat-toolbar
+{
+  z-index:999;
+}
+@media(min-width:1359px)
+{
+  .sidenav
+  {
+    display:none
+  }
+}
+.customized
+{
+background: #e65c00;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #F9D423, #e65c00);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #F9D423, #e65c00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: white;
+word-spacing: 10px;
+position: fixed;
+}
+.spacer
+{
+  margin-left:5%;
+}
+.spacer2
+{
+  flex: 1 1 auto;
+}
+.customized>button
+{
+  margin-left: 20px;
+  background: #c21500;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #ffc500, #c21500);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #ffc500, #c21500); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color:white;
+}
+.image-container
+{
+  width:50px;
+  height: 50px;
+  border-radius:5px;
+  border-color: white;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.star-image
+{
+  width:50px;
+  height: 50px;
+  cursor: pointer;
+}
+mat-menu
+{
+  margin-top:5%;
+}
+.styletext
+{
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 15px;
+  cursor: pointer;
+}

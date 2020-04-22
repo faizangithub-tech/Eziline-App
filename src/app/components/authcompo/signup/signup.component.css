@@ -1,0 +1,26 @@
+
+.card
+{
+  width:500px;
+  height:350px;
+  border-radius:20px;
+  margin-left: 32%;
+  z-index: 1;
+  margin-top: 10%;
+  position: absolute;
+  background-color: white;
+}
+mat-form-field
+{
+  padding-left: 120px;
+  width:80%
+}
+.row:first-of-type + .row
+{
+   padding-left:200px;
+   padding-top: 20px;
+}
+.col-12
+{
+  padding-top: 25px;
+}

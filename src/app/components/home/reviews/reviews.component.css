@@ -1,0 +1,61 @@
+.postcomment
+{
+  color: gray;
+  margin-top: 3%;
+
+}
+.cover
+{
+  background-color: gray;
+  width: 1000px;
+}
+.card-title
+{
+  width: 150px;
+}
+.userimage>img
+{
+   width:100px;
+   height: 100px;
+   border-radius: 50%;
+}
+textarea
+{
+  line-height: 20px !important
+}
+#sendcomment
+{
+  float: left;
+  margin-top: 3%;
+  margin-left: -5%;
+}
+mat-error
+{
+  font-weight: bold;
+}
+mat-form-field
+{
+  width:90%;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline
+{
+  color:gray;
+}
+mat-label
+{
+  font-weight:bolder;
+}
+.commentsflex
+{
+  width:800px
+}
+mat-card
+{
+  width:500px;
+  height:130px;
+  margin-top: 1%;
+}
+.navigation
+{
+  width:200px;
+}

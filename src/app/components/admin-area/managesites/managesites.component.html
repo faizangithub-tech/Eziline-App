@@ -1,0 +1,137 @@
+<div class="container-fluid">
+   <div class="container col-lg-5">
+     <div class="row">
+       <form [formGroup]="form">
+       <div class="col-lg-12 col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>enter a website name</mat-label>
+          <input matInput formControlName="name">
+          <mat-icon matSuffix>language</mat-icon>
+          <mat-error>{{getnameerror()}}</mat-error>
+          <mat-hint>distinctive name</mat-hint>
+        </mat-form-field>
+       </div>
+       <div class="col-lg-12 col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>enter referal link</mat-label>
+          <input matInput formControlName="link">
+          <mat-icon matSuffix>link</mat-icon>
+          <mat-error>{{getnameerror()}}</mat-error>
+        </mat-form-field>
+       </div>
+       <div class="col-lg-12 col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>enter title of website</mat-label>
+          <input matInput formControlName="title">
+          <mat-icon matSuffix>http</mat-icon>
+          <mat-hint>desriptive name</mat-hint>
+          <mat-error>{{getnameerror()}}</mat-error>
+        </mat-form-field>
+       </div>
+
+       <div  class="col-lg-12 col-md-6">
+
+        <mat-form-field appearance="outline">
+          <mat-label>website description</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+          <mat-icon matSuffix>assignment</mat-icon>
+          <mat-error>{{getdescrperror()}}</mat-error>
+        </mat-form-field>
+       </div>
+
+       <div class="col-lg-12 col-md-6">
+        <mat-form-field appearance="outline">
+           <mat-label>cover image for website</mat-label>
+           <input
+           matInput
+           (click)="input.click()"
+           id="filename"
+           [value]="name"
+           formControlName="coverimage"
+           >
+           <mat-icon matSuffix>add_a_photo</mat-icon>
+           <mat-error>{{getnameerror()}}</mat-error>
+
+        </mat-form-field>
+        <button mat-stroked-button [disabled]="selectedfile==null" (click)="upload()">upload
+          <mat-icon>publish</mat-icon>
+        </button>
+        <button mat-button *ngIf="uploaded==true">{{percentdone}}
+          <span class="fa fa-spinner fa-spin"></span>
+        </button>
+
+        <button mat-stroked-button class="float"
+         *ngIf="modify==false"
+         [disabled]="form.invalid"
+         (click)="submit()">
+          submit
+        <mat-icon>send</mat-icon>
+        </button>
+
+        <button mat-stroked-button class="float"
+         *ngIf="modify==true"
+         (click)="update()">
+         update
+        <mat-icon>settings_backup_restore</mat-icon>
+        </button>
+
+        <input type="file" style="display: none;"
+        (change)="onselectedfile($event)"
+        #input>
+       </div>
+
+
+      </form>
+     </div>
+   </div>
+   <!--Display elements section -->
+   <div class="container col-lg-7">
+    <div class="row modify">
+      <ng-container *ngFor="let obj of website">
+                  <mat-card class="col-md-4"
+                  *ngIf="state" [@zoomInUpOnEnter] [@zoomOutUpOnLeave]
+                  >
+                    <img mat-card-image class="image" src="{{obj.coverimage}}">
+                    <mat-card-header>
+                      <mat-card-title>
+                         {{obj.name}}
+                        <button mat-icon-button
+                           (click)="navigate(obj)">
+                        <mat-icon>link</mat-icon>
+                        </button>
+                        <button mat-icon-button class="meneu" [matMenuTriggerFor]="appMenu">
+                          <mat-icon>keyboard_arrow_down</mat-icon>
+                        </button>
+                      </mat-card-title>
+                      <mat-card-subtitle>
+                        {{obj.title}}
+                      </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content class="objdescribe">
+                      <p>{{obj.description}}</p>
+                    </mat-card-content>
+                  </mat-card>
+
+                  <mat-menu #appMenu="matMenu">
+                    <button mat-menu-item (click)="populate(obj)">
+                      <mat-icon>settings_backup_restore</mat-icon>
+                      update
+                    </button>
+                    <button mat-menu-item (click)="delete(obj)">
+                      <mat-icon>delete_outline</mat-icon>
+                      delete
+                    </button>
+                  </mat-menu>
+
+      </ng-container>
+    </div>
+    <div class="row navigation" *ngIf="dbrecords.length>0">
+
+         <button [disabled]="this.pageno==1" mat-button class="fa fa-arrow-left  fa-3x" (click)="prev()"></button>
+
+         <button [disabled]="(this.pageno-1)*this.pagesize >= dbrecords.length" mat-button class="fa fa-arrow-right fa-3x" (click)="next()"></button>
+
+    </div>
+   </div>
+
+</div>

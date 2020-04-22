@@ -1,0 +1,32 @@
+<div class="container-fluid">
+      <div class="row">
+       <div class="col-lg-4 entityholder">
+        <mat-card  *ngIf="state" [@bounceInDownOnEnter] [@bounceOutDownOnLeave]>
+          <img mat-card-image class="image"  src="{{obj.coverimage}}">
+          <mat-card-header>
+            <mat-card-title>
+               {{obj.name}}
+              <button mat-icon-button (click)="navigate(obj)">
+              <mat-icon>link</mat-icon>
+              </button>
+            </mat-card-title>
+            <mat-card-subtitle>
+              {{obj.title}}
+            </mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p class="card-text">
+             {{obj.description}}
+            </p>
+          </mat-card-content>
+        </mat-card>
+       </div>
+       <div class="col-md-8 Ratings">
+          <mat-toolbar>
+            <button mat-button routerLink="reviews" [routerLinkActive]="['active']">Reviews</button>
+            <button mat-button routerLink="details/ratings" [routerLinkActive]="['active']">Ratings</button>
+          </mat-toolbar>
+          <router-outlet></router-outlet>
+       </div>
+      </div>
+</div>
