@@ -40,7 +40,6 @@ export class RatingStarsComponent implements AfterViewInit,OnInit
                      this.stylerating()}
             else
             {
-
                      this.styleavgrating()}
   }
 

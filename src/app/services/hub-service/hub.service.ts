@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HubConnection, HubConnectionBuilder} from '@aspnet/signalr'
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import * as signalr  from '@aspnet/signalr';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +22,9 @@ export class HubService
   buildconnection()
   {
 
+
     let hubconnection = new HubConnectionBuilder()
-                        .withUrl("http://localhost:5000/notify")
+                        .withUrl("http://localhost:5000/notify",{accessTokenFactory: () =>localStorage.getItem("token")})
                         .build()
     hubconnection.start()
                  .then(()=>
@@ -34,6 +37,7 @@ export class HubService
                        this.callhubfunctions();
                  }).catch(()=>{console.log("failed to build a connection")})
 
+
   }
 
   callhubfunctions()
@@ -41,14 +45,12 @@ export class HubService
        this.connection.on("sendcomment",(data)=>
                {this.comment.next(data)})
 
-       this.connection.on("sendratings",(data)=>
-       {
+       this.connection.on("sendratings",(data)=>{
          console.log("Broadcasted updated Ratings",data)
          this.updateratings.next(data)})
 
 
-       this.connection.on("newratings",(data)=>
-       {
+       this.connection.on("newratings",(data)=> {
                console.log("Broadcasted Ratings",data)
        })
   }

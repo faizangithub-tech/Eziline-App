@@ -12,14 +12,10 @@ export class AuthGuard implements CanActivate
   constructor(private _login:LoginService,private _Alert:AlertService,private _route:Router){}
   canActivate(next: ActivatedRouteSnapshot,state: RouterStateSnapshot):boolean
   {
-    if(this._login._loggedin==true)
-    {
-      return true;
-    }
-    else
-    {
+    if(this._login.isloggedin()==true){
+      return true;}
+    else{
       this._route.navigate(['login'])
-      this._Alert.error("you are not logged in!!")
-    }
+      this._Alert.error("you are not logged in!!")}
   }
 }

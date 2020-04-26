@@ -42,7 +42,7 @@ export class NavigationComponent implements OnInit
                          let get=array.slice(0,this.pagesize)
                          this.filterd.emit(get)
                          console.log("Loaded records!!",this.records)
-                    })
+                    },error=>this._alert.error(error))
 
   }
   initobj(){

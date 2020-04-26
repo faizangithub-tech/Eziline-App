@@ -9,18 +9,45 @@
   margin-top: 10%;
   position: absolute;
   background-color: white;
+  background-image: url("../../../../assets/images/undraw_detailed_examination_joef.png");
+  background-size: 100% 100%;
 }
 mat-form-field
 {
-  padding-left: 120px;
-  width:80%
+  margin-left: 30%;
+  width:40%
+}
+Input
+{
+  height: 20px;
+}
+
+mat-label
+{
+  font-weight: bold;
+}
+mat-error
+{
+  font-weight:bold;
 }
 .row:first-of-type + .row
 {
-   padding-left:200px;
+   padding-left:150px;
    padding-top: 20px;
 }
 .col-12
 {
-  padding-top: 25px;
+  padding-top: 20px;
+}
+mat-icon
+{
+  color:gray
+}
+button
+{
+background: #f12711;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+margin-left: 30px;
+color: white;
 }

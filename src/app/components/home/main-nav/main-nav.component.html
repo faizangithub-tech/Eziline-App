@@ -33,7 +33,7 @@
 
       <mat-menu #beforeMenu="matMenu" xPosition="before">
       <button mat-menu-item><mat-icon>settings_backup_restore</mat-icon>EditProfile</button>
-      <button mat-menu-item><mat-icon>keyboard_return</mat-icon>Logout</button>
+      <button mat-menu-item (click)="logout()"><mat-icon>keyboard_return</mat-icon>Logout</button>
       <button mat-menu-item [matMenuTriggerFor]="adminitem" routerLink="admin" *appHasRole="{roles:['Admin','Moderator']}"><mat-icon>person</mat-icon>Admin</button>
       </mat-menu>
 

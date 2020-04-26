@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Login } from 'src/app/models/users/login';
 import { Loggedinuser } from 'src/app/models/users/loggedinuser'
@@ -27,6 +27,8 @@ export class LoginService
                        {
                              this._loggedinuser=response.user;
                              localStorage.setItem("token",response.token);
+                             let jsobj=JSON.stringify(response.user)
+                             sessionStorage.setItem("currentuser",jsobj)
                              this._loggedin=true
                              console.log("loggedin user",this._loggedinuser)
                        }))
@@ -63,6 +65,15 @@ export class LoginService
     this._decodedtoken=this._jwtHelper.decodeToken(localStorage.getItem("token"))
     const roles=this._decodedtoken.role as Array<string>
     return roles;
+  }
+
+  isloggedin()
+  {
+      let tokenexsist=this._jwtHelper.decodeToken(localStorage.getItem("token"))
+        if(tokenexsist)
+            return true
+        else
+            return false
   }
 
 }

@@ -1,5 +1,5 @@
 
-<div class="card">
+<div class="card" *ngIf="state" [@zoomInUpOnEnter] [@zoomOutUpOnLeave]>
   <div class="card-body">
      <div class="container">
       <div class="row">
@@ -30,6 +30,5 @@
     <button mat-button  (click)="signup()">SignUp</button>
    </div>
  </div>
-
 </div>
 

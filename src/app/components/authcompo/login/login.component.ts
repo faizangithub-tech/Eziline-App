@@ -6,18 +6,26 @@ import { HubService } from 'src/app/services/hub-service/hub.service';
 import { Router } from '@angular/router';
 import { Userroles } from 'src/app/models/user_roles/userroles';
 import { Model } from 'src/app/models/paginate/model';
+import { zoomOutUpOnLeaveAnimation, zoomInUpOnEnterAnimation } from 'angular-animations';
+import { AlertService } from 'src/app/services/alertify/alert.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations:[zoomInUpOnEnterAnimation(),
+              zoomOutUpOnLeaveAnimation()]
 })
 export class LoginComponent implements OnInit
 {
 
-  constructor(private _login:LoginService,private _hub:HubService,private _route:Router) { }
+  constructor(private _login:LoginService,
+    private _hub:HubService,
+    private _route:Router,
+    private _alert:AlertService) { }
   ngOnInit(){}
   test=[1]
+  state=true
   checked=true
   user:Userroles
   checklist=new Model()
@@ -41,39 +49,13 @@ export class LoginComponent implements OnInit
   {
     let user=new Login();
         user=this.form.value;
-    this._login.login(user).subscribe((data)=>
-    {
+    this._login.login(user).subscribe((data)=>{
             this._hub.buildconnection();
-    })
+    },error=>{
+        this._alert.error(error)})
   }
 
-  populate()
-  {
-    let user=new Userroles()
-        user.id=1
-        user.username="Mohammad"
-        user.roles.push("Moderator")
-        user.roles.push("Admin")
 
-    let roles=new Model()
-        console.log("Dummy User",user)
-        console.log("Roles before Operate",roles)
-
-        for(let i=0;i<user.roles.length;i++)
-        {
-                for(let j=0;j<roles.avaroles.length;j++)
-                {
-                       if(user.roles[i]==roles.avaroles[j].name)
-                       {
-                          roles.avaroles[j].ischecked=true
-                       }
-                }
-        }
-        this.checklist=roles
-        console.log("Edit Roles Modal Prototype",roles)
-
-
-  }
 
 addclass()
 {
@@ -85,7 +67,7 @@ addclass()
 }
 signup()
 {
-  this._route.navigate(['/signup'])
-}
-
-}
+  this.state=false
+  setTimeout(() =>{
+    this._route.navigate(['/signup'])
+  }, 1000);}}

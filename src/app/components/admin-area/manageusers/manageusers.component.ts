@@ -88,9 +88,8 @@ export class ManageusersComponent implements OnInit
                                                     .map(x=>x.name)
                                     user.roles=rolenames
                                     this._managuser.edituserroles(user)
-                                                   .subscribe(()=>this._alert.success("Users Roles Updted Successfully!"))
-                           })
-
-  }
+                                                   .subscribe(()=>this._alert.success("Users Roles Updted Successfully!"),
+                                                    error=>this._alert.error(error))},
+                                                    error=>this._alert.error(error))}
 
 }

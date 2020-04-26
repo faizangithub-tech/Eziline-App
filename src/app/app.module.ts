@@ -26,6 +26,8 @@ import { ReviewsComponent } from './components/home/reviews/reviews.component';
 import { AverageRatingsComponent } from './components/home/average-ratings/average-ratings.component';
 import { NavigationComponent } from './components/home/navigation/navigation.component';
 import { RatingStarsComponent } from './components/home/rating-stars/rating-stars.component';
+import { ErrorinterceptorService, HttpInterceptorProvider } from './httpinterceptor/errorinterceptor.service';
+import { HubService } from './services/hub-service/hub.service';
 export function tokenGetter()
 {
   return localStorage.getItem('token');
@@ -74,8 +76,17 @@ export function tokenGetter()
     AlertService,
     AdminGuard,
     WesitedetailService,
-    WebsiteGuard
+    WebsiteGuard,
+    HttpInterceptorProvider
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+    public constructor(private _login:LoginService,
+                       private _hub:HubService){
+            if(localStorage.getItem("token")){
+              let user=JSON.parse(sessionStorage.getItem("currentuser"))
+              console.log("seesion storage user obj",user)
+              _login._loggedinuser=user
+              _hub.buildconnection()}}
+ }

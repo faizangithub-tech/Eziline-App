@@ -37,7 +37,7 @@ export class AverageRatingsComponent implements OnInit, AfterViewInit {
                                  {this.model=data.ratinglist
                                   this.avgratings=data.averagerating}
                                   console.log("average rating",this.avgratings,"rating-list",this.model)
-                         })
+                         },error=>this._alert.error(error))
   }
   initobj(){
       this.webobj=this._service.customwebobj}
@@ -70,14 +70,8 @@ export class AverageRatingsComponent implements OnInit, AfterViewInit {
                         this.avgratings=value[1]
                         this.model=value[0]
                         console.log("Updated Average Rating Broadcasted",this.avgratings,"Percent",this.model)}
-                })
+                },error=>this._alert.error(error))
   }
-  IsActiveComp()
-  {
-    this._hub.isactive.subscribe((value)=>
-    {
 
-          this.ischanged=value})
-  }
 
 }

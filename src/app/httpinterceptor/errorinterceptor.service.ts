@@ -14,10 +14,14 @@ export class ErrorinterceptorService implements HttpInterceptor
       return next.handle(req).pipe(catchError(error=>
       {
 
-        if(error instanceof HttpErrorResponse)
-                   console.log("request pipe line",error.message)
+        if(error instanceof HttpErrorResponse){
+          const applicationerror= error.headers.get('Application-Error')
+            if(applicationerror){
+                console.log("http error interceptor",applicationerror)
+              return throwError(applicationerror)}
+            else{
+                return throwError(error.error)}}
 
-        return throwError(error)
       }))
   }
 

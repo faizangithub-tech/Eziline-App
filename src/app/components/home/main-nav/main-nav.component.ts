@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { LoginService } from 'src/app/services/auth-services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-nav',
@@ -20,12 +21,19 @@ export class MainNavComponent implements OnInit
 
   dummy="../../../../assets/images/dumyuser.png"
   star="../../../../assets/images/star (1).png"
-  constructor(private breakpointObserver: BreakpointObserver,private loggedin:LoginService) {}
+  constructor(private breakpointObserver: BreakpointObserver,
+    private loggedin:LoginService,
+    private route:Router ) {}
 
 
   ngOnInit()
   {
     console.log("it is not working bro!!")
   }
+
+  logout(){
+         localStorage.clear()
+         sessionStorage.clear()
+         this.route.navigate(['login'])}
 
 }
